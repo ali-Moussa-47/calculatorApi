@@ -25,3 +25,10 @@ jobs:
     - name: Run tests
       run: |
         python -m unittest discover -s tests
+    - name: Run tests with coverage
+      run: |
+        pip install coverage
+        coverage run -m unittest discover -s tests
+        coverage report --fail-under=80
+    - name: Generate coverage HTML report
+      run: coverage html
